@@ -1,0 +1,21 @@
+[package]
+name = "lab1"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cortex-m = "0.7.7"
+cortex-m-rt = { version = "0.7.3", features = ["device"] }
+panic-halt = "0.2.0"
+stm32f7xx-hal = { version = "0.7.0", features = ["stm32f769", "rt"] }
+
+[[bin]]
+name = "lab1"
+test = false
+bench = false
+
+[profile.release]
+# strip = true      # Automatically strip symbols from the binary.
+lto = true        # Link-time optimization.
+opt-level = "z"   # Optimization level 3.
+codegen-units = 1 # Maximum size reduction optimizations.
